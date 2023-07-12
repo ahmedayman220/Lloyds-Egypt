@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,18 +17,58 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// if rout is not exist
+Route::fallback(function() {
+    return back();
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+
+// Login Group
+Route::middleware('guest')->group(function () {
+
+    Route::get('login', [AuthenticatedSessionController::class, 'create'])
+        ->name('login');
+
+    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+});
+
+
+
 
 Route::middleware('auth')->group(function () {
+    // Admin Dashboard
+    Route::get('/dashboard', [AdminController::class,'index'])->name('dashboard');
+
+    // Admin Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Admin Banners
+
+    Route::middleware('auth')
+        ->controller(BannerController::class)
+        ->prefix('banner')
+        ->name('banner.')->group(function() {
+            Route::get('' , 'index')->name('index');
+            Route::put('' , 'update')->name('update');
+
+        });
+
+
+
+
+    // logout
+    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+        ->name('logout');
+
 });
 
-require __DIR__.'/auth.php';
+
+
+
+//  User
+Route::get('/', function () {
+    return view('welcome');
+});
