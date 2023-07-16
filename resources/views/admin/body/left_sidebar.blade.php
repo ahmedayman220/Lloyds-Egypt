@@ -21,55 +21,18 @@
                     </a>
                 </li>
                 {{-- About Us --}}
+
                 <li>
-                    <a href="#about_us" data-bs-toggle="collapse">
+                    <a href="{{ route('about.index') }}">
                         <span> About Us </span>
-                        <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="about_us">
-                        <ul class="nav-second-level">
-
-                            <li>
-                                <a href="crm-dashboard.html">About Us</a>
-                            </li>
-
-                            <li>
-                                <a href="crm-dashboard.html">Add Content To About Us</a>
-                            </li>
-
-                            <li>
-                                <a href="crm-dashboard.html">Edit About Us</a>
-                            </li>
-
-
-                        </ul>
-                    </div>
                 </li>
 
                 {{-- Mission --}}
                 <li>
-                    <a href="#mission" data-bs-toggle="collapse">
+                    <a href="{{ route('mission.index') }}">
                         <span> Mission </span>
-                        <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="mission">
-                        <ul class="nav-second-level">
-
-                            <li>
-                                <a href="crm-dashboard.html">Mission</a>
-                            </li>
-
-                            <li>
-                                <a href="crm-dashboard.html">Add Content To Mission</a>
-                            </li>
-
-                            <li>
-                                <a href="crm-dashboard.html">Edit Mission</a>
-                            </li>
-
-
-                        </ul>
-                    </div>
                 </li>
 
 

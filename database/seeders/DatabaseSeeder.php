@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             BannerSeeder::class,
             SettingSeeder::class,
             AboutSeeder::class,
+            MissionSeeder::class
         ]);
 
         // \App\Models\User::factory(10)->create();

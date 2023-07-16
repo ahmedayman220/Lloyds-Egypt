@@ -4,9 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SettingRequest extends FormRequest
+class MissionRequset extends FormRequest
 {
-
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -22,16 +21,12 @@ class SettingRequest extends FormRequest
      */
     public function rules(): array
     {
-        dd(auth()->user()->name);
-
         return [
-            'address' => 'nullable|string|max:255',
-            'email' => 'nullable|email|max:255',
-            'phone' => 'nullable|string|max:255',
-            'facebook_link' => 'nullable|string|max:255',
-            'twitter_link' => 'nullable|string|max:255',
-            'whatsapp_link' => 'nullable|string|max:255',
-            'app_favicon' => 'image|mimes:jpeg,png,jpg,gif',
+            'title' => 'required|string|max:255',
+            'our_mission_description' => 'required|string',
+            'our_vision_description' => 'required|string',
+            'our_goal_description' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ];
     }
 }

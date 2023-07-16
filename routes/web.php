@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\MissionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,6 +66,13 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     // Admin About Us
     Route::controller(AboutController::class)
         ->prefix('about')->name('about.')->group(function() {
+            Route::get('' , 'index')->name('index');
+            Route::put('' , 'update')->name('update');
+        });
+
+    // Admin About Us
+    Route::controller(MissionController::class)
+        ->prefix('mission')->name('mission.')->group(function() {
             Route::get('' , 'index')->name('index');
             Route::put('' , 'update')->name('update');
         });
