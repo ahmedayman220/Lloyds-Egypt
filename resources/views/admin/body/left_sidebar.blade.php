@@ -7,7 +7,7 @@
 
             <ul id="side-menu">
                 <li>
-                    <a href="apps-calendar.html">
+                    <a href="{{ route('setting.index') }}">
                         <i class="mdi mdi-calendar"></i>
                         <span> Setting </span>
                     </a>
@@ -16,27 +16,9 @@
 
                 {{-- banner --}}
                 <li>
-                    <a href="#sidebarEcommerce" data-bs-toggle="collapse">
+                    <a href="{{ route('banner.index') }}">
                         <span> Banner </span>
-                        <span class="menu-arrow"></span>
                     </a>
-
-                    <div class="collapse" id="sidebarEcommerce">
-                        <ul class="nav-second-level">
-                            <li>
-                                <a href="ecommerce-dashboard.html">Banner</a>
-                            </li>
-
-                            <li>
-                                <a href="ecommerce-dashboard.html">Add Banner</a>
-                            </li>
-
-                            <li>
-                                <a href="ecommerce-dashboard.html">Edit Banner</a>
-                            </li>
-
-                        </ul>
-                    </div>
                 </li>
                 {{-- About Us --}}
                 <li>

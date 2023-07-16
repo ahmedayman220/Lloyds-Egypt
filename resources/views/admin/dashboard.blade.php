@@ -24,6 +24,9 @@
     <link href="{{ asset('admin/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css"/>
     <!-- Head js -->
     <script src="{{ asset('admin/assets/js/head.js') }}"></script>
+    {{--  toaster  --}}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
 </head>
 
 <!-- body start -->
@@ -81,9 +84,35 @@
 
 <!-- Dashboar 1 init js-->
 <script src="{{ asset('admin/assets/js/pages/dashboard-1.init.js') }}"></script>
+{{-- Toster --}}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <!-- App js-->
 <script src="{{ asset('admin/assets/js/app.min.js') }}"></script>
+
+{{-- toaster --}}
+<script>
+    @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type','info') }}"
+    switch(type){
+        case 'info':
+            toastr.info(" {{ Session::get('message') }} ");
+            break;
+
+        case 'success':
+            toastr.success(" {{ Session::get('message') }} ");
+            break;
+
+        case 'warning':
+            toastr.warning(" {{ Session::get('message') }} ");
+            break;
+
+        case 'error':
+            toastr.error(" {{ Session::get('message') }} ");
+            break;
+    }
+    @endif
+</script>
 
 </body>
 </html>

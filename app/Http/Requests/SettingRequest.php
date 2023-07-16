@@ -4,8 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BannerRequest extends FormRequest
+class SettingRequest extends FormRequest
 {
+    
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -21,12 +22,16 @@ class BannerRequest extends FormRequest
      */
     public function rules(): array
     {
+        dd(auth()->user()->name);
+
         return [
-            'title' => 'required|string|max:20',
-            'short_title' => 'required|string',
-            'description' => 'required|string',
-            'images' => 'array|nullable',
-            'images.*.image' => 'image|mimes:jpeg,png,jpg,gif',
+            'address' => 'nullable|string|max:255',
+            'email' => 'nullable|email|max:255',
+            'phone' => 'nullable|string|max:255',
+            'facebook_link' => 'nullable|string|max:255',
+            'twitter_link' => 'nullable|string|max:255',
+            'whatsapp_link' => 'nullable|string|max:255',
+            'app_favicon' => 'image|mimes:jpeg,png,jpg,gif',
         ];
     }
 }
