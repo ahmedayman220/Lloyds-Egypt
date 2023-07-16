@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AboutRequest;
-use App\Http\Requests\BannerRequest;
 use App\Models\About;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
 class AboutController extends Controller
@@ -67,6 +65,5 @@ class AboutController extends Controller
         // Redirect back to the previous page with the notification message
         return back()->with($notification);
     }
-
 
 }
