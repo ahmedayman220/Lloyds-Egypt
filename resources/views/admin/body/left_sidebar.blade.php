@@ -16,7 +16,7 @@
 
                 {{-- banner --}}
                 <li>
-{{--                    <a href="{{ route('banner.index') }}">--}}
+                    <a href="{{ route('banner.index') }}">
                         <span> Banner </span>
                     </a>
                 </li>
@@ -71,7 +71,7 @@
                             </li>
 
                             <li>
-{{--                                <a href="{{ route('supplier_item.index') }}">Service Item</a>--}}
+                                <a href="{{ route('supplier_item.index') }}">Service Item</a>
                             </li>
 
                         </ul>

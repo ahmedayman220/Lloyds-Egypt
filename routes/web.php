@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceCategoryController;
 use App\Http\Controllers\ServiceItemController;
 use App\Http\Controllers\SupplierCategoryController;
+use App\Http\Controllers\SupplierItemController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\SettingController;
@@ -98,10 +99,18 @@ Route::middleware('auth')->prefix('admin')->group(function () {
             Route::delete('' , 'destroy')->name('destroy');
         });
 
-    // Admin Supplier Item
-
+    // Admin Supplier Category
     Route::controller(SupplierCategoryController::class)
         ->prefix('supplier-category')->name('supplier_category.')->group(function() {
+            Route::get('' , 'index')->name('index');
+            Route::post('' , 'store')->name('store');
+            Route::put('' , 'update')->name('update');
+            Route::delete('' , 'destroy')->name('destroy');
+        });
+
+    // Admin Supplier Item
+    Route::controller(SupplierItemController::class)
+        ->prefix('supplier-item')->name('supplier_item.')->group(function() {
             Route::get('' , 'index')->name('index');
             Route::post('' , 'store')->name('store');
             Route::put('' , 'update')->name('update');

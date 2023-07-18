@@ -51,6 +51,9 @@
                         </div>
                     </div>
 
+                    @error('category_id')
+                    <p class="text-danger">{{ $message }}</p>
+                    @enderror
 
                     <div class="row">
                         <div class="col-md-12">
@@ -167,6 +170,10 @@
                                 </select>
                             </div>
                         </div>
+
+                        @error('category_id')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
 
 
                         <div class="row">

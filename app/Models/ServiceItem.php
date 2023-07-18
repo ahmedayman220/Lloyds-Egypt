@@ -11,7 +11,6 @@ class ServiceItem extends Model
     protected $guarded = [];
 
     public  function serviceCategory() {
-//        dd($this->belongsTo(ServiceCategory::class , 'category_id'));
         return $this->belongsTo(ServiceCategory::class , 'category_id');
     }
 }

@@ -29,9 +29,7 @@
                                 <label for="field-7" class="form-label">Description</label>
                                 <textarea class="form-control" id="field-7"
                                           name="description"
-                                          style="height: 176px;">
-                                            {{ old('description') }}
-                                </textarea>
+                                          style="height: 176px;">{{ old('description') }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -132,9 +130,7 @@
                                     <label for="field-7" class="form-label">Description</label>
                                     <textarea class="form-control" id="field-7"
                                               name="description"
-                                              style="height: 176px;">
-                                    {{ old('description' , $service_category->description) }}
-                                </textarea>
+                                              style="height: 176px;">{{ old('description' , $service_category->description) }}</textarea>
                                 </div>
                             </div>
                         </div>

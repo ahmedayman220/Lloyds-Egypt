@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SupplierCategory extends Model
+class SupplierItem extends Model
 {
     use HasFactory;
     protected $guarded = [];
 
-    public function supplierItem() {
-        return $this->hasMany(SupplierItem::class, 'category_id');
+    public function supplierCategory() {
+        return $this->belongsTo(SupplierCategory::class , 'category_id');
     }
 }
