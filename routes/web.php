@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceCategoryController;
 use App\Http\Controllers\ServiceItemController;
@@ -117,6 +118,14 @@ Route::middleware('auth')->prefix('admin')->group(function () {
             Route::delete('' , 'destroy')->name('destroy');
         });
 
+    // Admin Companies
+    Route::controller(CompaniesController::class)
+        ->prefix('companies')->name('companies.')->group(function() {
+            Route::get('' , 'index')->name('index');
+            Route::post('' , 'store')->name('store');
+            Route::put('' , 'update')->name('update');
+            Route::delete('' , 'destroy')->name('destroy');
+        });
 
 
     // logout

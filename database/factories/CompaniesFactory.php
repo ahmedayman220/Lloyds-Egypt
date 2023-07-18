@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ServiceCategory>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Companies>
  */
-class ServiceCategoryFactory extends Factory
+class CompaniesFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +18,8 @@ class ServiceCategoryFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'description' => $this->faker->paragraph,
-            'image' => 'service_category/page-title-bg.jpg'
+            'image' => 'companies/company.png',
+
         ];
     }
 }

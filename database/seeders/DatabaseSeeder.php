@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Companies;
 use App\Models\ServiceCategory;
 use App\Models\ServiceItem;
 use App\Models\SupplierCategory;
@@ -30,6 +31,7 @@ class DatabaseSeeder extends Seeder
         ServiceItem::factory()->count(10)->create();
         SupplierCategory::factory()->count(5)->create();
         SupplierItem::factory()->count(10)->create();
+        Companies::factory()->count(5)->create();
 
         // \App\Models\User::factory(10)->create();
 
