@@ -16,6 +16,9 @@
     <link href="{{ asset('admin/assets/libs/selectize/css/selectize.bootstrap3.css') }}" rel="stylesheet"
           type="text/css"/>
 
+    <!-- Jquery Toast css -->
+    <link href="{{ asset('admin/assets/libs/jquery-toast-plugin/jquery.toast.min.css') }}" rel="stylesheet" type="text/css" />
+
     <!-- Bootstrap css -->
     <link href="{{ asset('admin/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
     <!-- App css -->
@@ -24,9 +27,8 @@
     <link href="{{ asset('admin/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css"/>
     <!-- Head js -->
     <script src="{{ asset('admin/assets/js/head.js') }}"></script>
-    {{--  toaster  --}}
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
+    @yield('additional_style')
 </head>
 
 <!-- body start -->
@@ -76,43 +78,17 @@
 <!-- Vendor js -->
 <script src="{{ asset('admin/assets/js/vendor.min.js') }}"></script>
 
-<!-- Plugins js-->
-<script src="{{ asset('admin/assets/libs/flatpickr/flatpickr.min.js') }}"></script>
-<script src="{{ asset('admin/assets/libs/apexcharts/apexcharts.min.js') }}"></script>
-
 <script src="{{ asset('admin/assets/libs/selectize/js/standalone/selectize.min.js') }}"></script>
 
-<!-- Dashboar 1 init js-->
-<script src="{{ asset('admin/assets/js/pages/dashboard-1.init.js') }}"></script>
-{{-- Toster --}}
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<!-- Tost-->
+<script src="{{ asset('admin/assets/libs/jquery-toast-plugin/jquery.toast.min.js') }}"></script>
 
+<!-- toastr init js-->
+@include('admin.additanial.toastr')
+
+@yield('additanial_script')
 <!-- App js-->
 <script src="{{ asset('admin/assets/js/app.min.js') }}"></script>
-
-{{-- toaster --}}
-<script>
-    @if(Session::has('message'))
-    var type = "{{ Session::get('alert-type','info') }}"
-    switch(type){
-        case 'info':
-            toastr.info(" {{ Session::get('message') }} ");
-            break;
-
-        case 'success':
-            toastr.success(" {{ Session::get('message') }} ");
-            break;
-
-        case 'warning':
-            toastr.warning(" {{ Session::get('message') }} ");
-            break;
-
-        case 'error':
-            toastr.error(" {{ Session::get('message') }} ");
-            break;
-    }
-    @endif
-</script>
 
 </body>
 </html>

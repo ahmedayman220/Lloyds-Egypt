@@ -21,7 +21,7 @@ class SettingSeeder extends Seeder
                 'facebook_link' => 'https://www.google.com/',
                 'twitter_link' => 'https://www.google.com/',
                 'whatsapp_link' => 'https://www.google.com/',
-                'app_favicon' => 'setting/upload/logo-sm.png'
+                'app_favicon' => ''
             ]
         );
     }
