@@ -7,7 +7,7 @@
 
             <ul id="side-menu">
                 <li>
-                    <a href="{{ route('setting.index') }}">
+{{--                    <a href="{{ route('setting.index') }}">--}}
                         <i class="mdi mdi-calendar"></i>
                         <span> Setting </span>
                     </a>
@@ -16,7 +16,7 @@
 
                 {{-- banner --}}
                 <li>
-                    <a href="{{ route('banner.index') }}">
+{{--                    <a href="{{ route('banner.index') }}">--}}
                         <span> Banner </span>
                     </a>
                 </li>
@@ -36,13 +36,13 @@
                 </li>
 
 
-                {{-- Gallery --}}
+                {{-- Services --}}
                 <li>
-                    <a href="#" data-bs-toggle="collapse">
+                    <a href="#Services" data-bs-toggle="collapse">
                         <span> Services </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="gallery">
+                    <div class="collapse" id="Services">
                         <ul class="nav-second-level">
 
                             <li>
@@ -51,6 +51,27 @@
 
                             <li>
                                 <a href="{{ route('service_item.index') }}">Service Item</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
+                {{-- Suppliers --}}
+                <li>
+                    <a href="#Suppliers" data-bs-toggle="collapse">
+                        <span> Suppliers </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="Suppliers">
+                        <ul class="nav-second-level">
+
+                            <li>
+                                <a href="{{ route('supplier_category.index') }}">Supplier Category</a>
+                            </li>
+
+                            <li>
+{{--                                <a href="{{ route('supplier_item.index') }}">Service Item</a>--}}
                             </li>
 
                         </ul>

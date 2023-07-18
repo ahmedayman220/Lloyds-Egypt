@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\ServiceCategory;
 use App\Models\ServiceItem;
+use App\Models\SupplierCategory;
 use Database\Factories\ServiceCategoryFactory;
 use Database\Factories\ServiceItemFactory;
 use Illuminate\Database\Seeder;
@@ -25,7 +26,8 @@ class DatabaseSeeder extends Seeder
             MissionSeeder::class,
         ]);
         ServiceCategory::factory()->count(5)->create();
-        ServiceItem::factory()->count(40)->create();
+        ServiceItem::factory()->count(10)->create();
+        SupplierCategory::factory()->count(5)->create();
 
         // \App\Models\User::factory(10)->create();
 

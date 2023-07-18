@@ -5,6 +5,7 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceCategoryController;
 use App\Http\Controllers\ServiceItemController;
+use App\Http\Controllers\SupplierCategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\SettingController;
@@ -96,6 +97,18 @@ Route::middleware('auth')->prefix('admin')->group(function () {
             Route::put('' , 'update')->name('update');
             Route::delete('' , 'destroy')->name('destroy');
         });
+
+    // Admin Supplier Item
+
+    Route::controller(SupplierCategoryController::class)
+        ->prefix('supplier-category')->name('supplier_category.')->group(function() {
+            Route::get('' , 'index')->name('index');
+            Route::post('' , 'store')->name('store');
+            Route::put('' , 'update')->name('update');
+            Route::delete('' , 'destroy')->name('destroy');
+        });
+
+
 
     // logout
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
