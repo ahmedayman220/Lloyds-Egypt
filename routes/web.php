@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceCategoryController;
+use App\Http\Controllers\ServiceItemController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\SettingController;
@@ -81,6 +82,15 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     // Admin Services Category
     Route::controller(ServiceCategoryController::class)
         ->prefix('service-category')->name('service_category.')->group(function() {
+            Route::get('' , 'index')->name('index');
+            Route::post('' , 'store')->name('store');
+            Route::put('' , 'update')->name('update');
+            Route::delete('' , 'destroy')->name('destroy');
+        });
+
+    // Admin Services Item
+    Route::controller(ServiceItemController::class)
+        ->prefix('service-item')->name('service_item.')->group(function() {
             Route::get('' , 'index')->name('index');
             Route::post('' , 'store')->name('store');
             Route::put('' , 'update')->name('update');

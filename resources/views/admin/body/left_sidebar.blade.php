@@ -38,23 +38,19 @@
 
                 {{-- Gallery --}}
                 <li>
-                    <a href="#gallery" data-bs-toggle="collapse">
-                        <span> Gallery </span>
+                    <a href="#" data-bs-toggle="collapse">
+                        <span> Services </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="gallery">
                         <ul class="nav-second-level">
 
                             <li>
-                                <a href="crm-dashboard.html">Gallery</a>
+                                <a href="{{ route('service_category.index') }}">Service Category</a>
                             </li>
 
                             <li>
-                                <a href="crm-dashboard.html">Add Images</a>
-                            </li>
-
-                            <li>
-                                <a href="crm-dashboard.html">Edit Images</a>
+                                <a href="{{ route('service_item.index') }}">Service Item</a>
                             </li>
 
                         </ul>
