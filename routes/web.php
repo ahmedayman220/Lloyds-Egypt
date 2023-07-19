@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CompaniesController;
+use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\InstructorsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceCategoryController;
@@ -137,6 +138,14 @@ Route::middleware('auth')->prefix('admin')->group(function () {
             Route::delete('' , 'destroy')->name('destroy');
         });
 
+    // Admin Companies
+    Route::controller(CoursesController::class)
+        ->prefix('courses')->name('courses.')->group(function() {
+            Route::get('' , 'index')->name('index');
+            Route::post('' , 'store')->name('store');
+            Route::put('' , 'update')->name('update');
+            Route::delete('' , 'destroy')->name('destroy');
+        });
     // logout
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Companies;
+use App\Models\Courses;
 use App\Models\Instructors;
 use App\Models\ServiceCategory;
 use App\Models\ServiceItem;
@@ -32,7 +33,7 @@ class DatabaseSeeder extends Seeder
         SupplierItem::factory()->count(10)->create();
         Companies::factory()->count(5)->create();
         Instructors::factory()->count(5)->create();
-
+        Courses::factory()->count(5)->create();
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
