@@ -78,29 +78,11 @@
                     </div>
                 </li>
 
-                {{-- Employee --}}
+                {{-- Instructors --}}
                 <li>
-                    <a href="#employee" data-bs-toggle="collapse">
-                        <span> Employee </span>
-                        <span class="menu-arrow"></span>
+                    <a href="{{ route('instructors.index') }}">
+                        <span> Instructors </span>
                     </a>
-                    <div class="collapse" id="employee">
-                        <ul class="nav-second-level">
-
-                            <li>
-                                <a href="crm-dashboard.html">Employees</a>
-                            </li>
-
-                            <li>
-                                <a href="crm-dashboard.html">Add Employee</a>
-                            </li>
-
-                            <li>
-                                <a href="crm-dashboard.html">Edit Mission</a>
-                            </li>
-
-                        </ul>
-                    </div>
                 </li>
 
 
