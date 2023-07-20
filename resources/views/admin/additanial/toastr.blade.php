@@ -27,7 +27,7 @@
                 i.NotificationApp.send("Heads up!", "{{ Session::get('message') }}", "top-right", "#3b98b5", "info");
                 break;
             case  'warning' :
-                i.NotificationApp.send("Heads up!", "{{ Session::get('message') }}", "top-center", "#da8609", "warning");
+                i.NotificationApp.send("Heads up!", "{{ Session::get('message') }}", "top-right", "#da8609", "warning");
                 break;
             case 'success':
                 i.NotificationApp.send("Well Done!", "{{ Session::get('message') }}", "top-right", "#5ba035", "success")

@@ -6,6 +6,7 @@ use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\InstructorsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\ServiceCategoryController;
 use App\Http\Controllers\ServiceItemController;
 use App\Http\Controllers\SupplierCategoryController;
@@ -129,7 +130,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
             Route::delete('' , 'destroy')->name('destroy');
         });
 
-    // Admin Companies
+    // Admin instructors
     Route::controller(InstructorsController::class)
         ->prefix('instructors')->name('instructors.')->group(function() {
             Route::get('' , 'index')->name('index');
@@ -138,7 +139,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
             Route::delete('' , 'destroy')->name('destroy');
         });
 
-    // Admin Companies
+    // Admin courses
     Route::controller(CoursesController::class)
         ->prefix('courses')->name('courses.')->group(function() {
             Route::get('' , 'index')->name('index');
@@ -146,6 +147,15 @@ Route::middleware('auth')->prefix('admin')->group(function () {
             Route::put('' , 'update')->name('update');
             Route::delete('' , 'destroy')->name('destroy');
         });
+
+    // Admin Qr Code
+    Route::controller(QrCodeController::class)
+        ->prefix('QrCode')->name('QrCode.')->group(function() {
+            Route::get('' , 'index')->name('index');
+            Route::post('' , 'store')->name('store');
+            Route::delete('' , 'destroy')->name('destroy');
+        });
+
     // logout
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
