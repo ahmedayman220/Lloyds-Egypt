@@ -8,13 +8,11 @@
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description"/>
     <meta content="Coderthemes" name="author"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('admin/assets/images/favicon.ico') }}">
 
-    <!-- Plugins css -->
-    <link href="{{ asset('admin/assets/libs/flatpickr/flatpickr.min.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('admin/assets/libs/selectize/css/selectize.bootstrap3.css') }}" rel="stylesheet"
-          type="text/css"/>
+    @yield('additional_style')
 
     <!-- Jquery Toast css -->
     <link href="{{ asset('admin/assets/libs/jquery-toast-plugin/jquery.toast.min.css') }}" rel="stylesheet" type="text/css" />
@@ -28,7 +26,7 @@
     <!-- Head js -->
     <script src="{{ asset('admin/assets/js/head.js') }}"></script>
 
-    @yield('additional_style')
+
 </head>
 
 <!-- body start -->
@@ -78,6 +76,8 @@
 <!-- Vendor js -->
 <script src="{{ asset('admin/assets/js/vendor.min.js') }}"></script>
 
+@yield('additanial_script')
+
 <script src="{{ asset('admin/assets/libs/selectize/js/standalone/selectize.min.js') }}"></script>
 
 <!-- Tost-->
@@ -86,7 +86,6 @@
 <!-- toastr init js-->
 @include('admin.additanial.toastr')
 
-@yield('additanial_script')
 <!-- App js-->
 <script src="{{ asset('admin/assets/js/app.min.js') }}"></script>
 

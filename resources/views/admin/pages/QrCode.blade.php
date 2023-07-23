@@ -100,6 +100,15 @@
     <link href="{{ asset('admin/assets/libs/datatables.net-select-bs5/css//select.bootstrap5.min.css')}}"
           rel="stylesheet" type="text/css"/>
     <!-- third party css end -->
+
+
+    <link href="{{ asset('admin/assets/libs/spectrum-colorpicker2/spectrum.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('admin/assets/libs/flatpickr/flatpickr.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/assets/libs/clockpicker/bootstrap-clockpicker.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css')}}" rel="stylesheet" type="text/css" />
+
+
 @endsection
 
 
@@ -120,6 +129,17 @@
     <script src="{{ asset('admin/assets/libs/pdfmake/build/pdfmake.min.js')}}"></script>
     <script src="{{ asset('admin/assets/libs/pdfmake/build/vfs_fonts.js')}}"></script>
     <!-- third party js ends -->
+
+    <!-- Plugins js-->
+    <script src="{{ asset('admin/assets/libs/flatpickr/flatpickr.min.js')}}"></script>
+    <script src="{{ asset('admin/assets/libs/spectrum-colorpicker2/spectrum.min.js')}}"></script>
+    <script src="{{ asset('admin/assets/libs/clockpicker/bootstrap-clockpicker.min.js')}}"></script>
+    <script src="{{ asset('admin/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
+
+    <!-- Init js-->
+    <script src="assets/js/pages/form-pickers.init.js"></script>
+
+
     <!-- Datatables init -->
     <script src="{{ asset('admin/assets/js/pages/datatables.init.js')}}"></script>
 @endsection

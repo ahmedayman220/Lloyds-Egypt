@@ -111,9 +111,9 @@
                     <div class="collapse" id="Training">
                         <ul class="nav-second-level">
 
-                            <li>
-                                <a href="{{ route('Training.index') }}">Supplier Category</a>
-                            </li>
+{{--                            <li>--}}
+{{--                                <a href="{{ route('Training.index') }}">Supplier Category</a>--}}
+{{--                            </li>--}}
 
 {{--                            <li>--}}
 {{--                                <a href="{{ route('supplier_item.index') }}">Service Item</a>--}}

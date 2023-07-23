@@ -54,7 +54,7 @@ class AboutController extends Controller
         $about = About::first();
 
         // Fill the model with the updated $data and save it
-        $about->fill($data)->save();
+        $about->update($data);
 
         // Create a notification message for the user
         $notification = array(

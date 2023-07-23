@@ -38,9 +38,7 @@
                             <label for="description" class="form-label">Description<span
                                     class="text-danger">*</span></label>
                             <textarea name="description" id="textarea"
-                                      class="form-control" maxlength="225" rows="3">
-                                {{ old('description', $banner->description) }}
-                            </textarea>
+                                      class="form-control" maxlength="225" rows="3">{{ old('description', $banner->description) }}</textarea>
                         </div>
                         @error('description')
                         <p class="text-danger">{{ $message }}</p>

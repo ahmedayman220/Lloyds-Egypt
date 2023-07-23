@@ -20,7 +20,7 @@ class ServiceItemFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
+            'name' =>  'service Item ' . $this->faker->name(),
             'description' => $this->faker->paragraph,
             'image' => 'service_items/page-title-bg.jpg',
             'category_id' => function() {

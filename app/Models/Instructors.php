@@ -9,4 +9,9 @@ class Instructors extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function instructors()
+    {
+        return $this->hasMany(Training::class, 'instructor_id');
+    }
 }

@@ -3,84 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreQrCodeRequest;
-use App\Http\Requests\UpdateQrCodeRequest;
 use App\Models\QrCode;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Storage;
+use App\Services\GenerateQrCodeService;
 
 class QrCodeController extends Controller
 {
-    private function generate_data($body,$eye,$eyeBall,$bgColor,$gradientColor1,$gradientColor2,$gradientType,$eyeColor,$eyeBallColor,$logo)
-    {
-        $data = [
-            'data' => 'https://www.google.com/',
-            'config' => [
-                "body" => $body,
-                "eye" => $eye,
-                "eyeBall" => $eyeBall,
-                "bgColor" => $bgColor,
-                "gradientColor1" => $gradientColor1,
-                "gradientColor2" => $gradientColor2,
-                "gradientType" => $gradientType,
-                "eye1Color" => $eyeColor,
-                "eye2Color" => $eyeColor,
-                "eye3Color" => $eyeColor,
-                "eyeBall1Color" => $eyeBallColor,
-                "eyeBall2Color" => $eyeBallColor,
-                "eyeBall3Color" => $eyeBallColor,
-                'logo' => $logo,
-                "logoMode" => "default"
-            ],
-            "size" => 1000,
-            "download" => "imageUrl",
-            "file" => "png"
-        ];
-        return $data;
-    }
-
-
-    private function uploadLogoImage($logoImage)
-    {
-        $apiEndpoint = 'https://api.qrcode-monkey.com/qr/uploadImage';
-
-        $client = new Client();
-
-        $response = $client->request('POST', $apiEndpoint, [
-            'multipart' => [
-                [
-                    'name' => 'file',
-                    'contents' => file_get_contents($logoImage->getRealPath()),
-                    'filename' => $logoImage->getClientOriginalName(),
-                ],
-            ],
-        ]);
-
-        return json_decode($response->getBody(), true);
-    }
-
-    private function createQRCodeWithLogo($data)
-    {
-        $apiEndpoint = 'https://api.qrcode-monkey.com/qr/custom';
-
-        $client = new Client();
-
-        $response = $client->request('POST', $apiEndpoint, [
-            'json' => $data,
-        ]);
-
-        $responseBody = json_decode($response->getBody(), true);
-        if ($responseBody['imageUrl']) {
-            return $responseBody['imageUrl'];
-        } else {
-            return null;
-        }
-    }
-
-
     public function index(QrCode $qrCode)
     {
-
         $qrCode = $qrCode->all();
         return view('admin.pages.QrCode' , [
             'qrCodes' => $qrCode
@@ -94,12 +26,13 @@ class QrCodeController extends Controller
      * Store a newly created resource in storage.
      */
 
-    public function store(StoreQrCodeRequest $request , QrCode $qrCode) {
+    public function store(StoreQrCodeRequest $request , QrCode $qrCode , GenerateQrCodeService $uploadLogoImage) {
+
         $request->validated();
         $logoImage = $request->file('image');
-        $uploadedLogoResponse = $this->uploadLogoImage($logoImage);
+        $uploadedLogoResponse = $uploadLogoImage->uploadLogoImage($logoImage);
 
-        $data = $this->generate_data(
+        $data = $uploadLogoImage->generateData(
             $request->body,
             $request->eye,
             $request->eyeBall,
@@ -109,10 +42,11 @@ class QrCodeController extends Controller
             $request->gradientType,
             $request->eyeColor,
             $request->eyeBallColor,
-            $uploadedLogoResponse['file']
+            $uploadedLogoResponse
         );
         // Step 3: Make the POST request to create the QR code with the logo
-        $qrCodeImageUrl = $this->createQRCodeWithLogo($data);
+        $qrCodeImageUrl = $uploadLogoImage->createQRCodeWithLogo($data);
+
         if ($qrCodeImageUrl) {
             // Download the QR code image using Guzzle
             $client = new Client();
@@ -145,7 +79,6 @@ class QrCodeController extends Controller
                 'alert-type' => 'danger'
             );
 
-            return back()->with($notification);
         }
 
 

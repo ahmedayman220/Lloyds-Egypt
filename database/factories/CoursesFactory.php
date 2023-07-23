@@ -17,7 +17,7 @@ class CoursesFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name,
+            'name' => 'course ' . $this->faker->name,
             'short_cut' => $this->faker->name,
 
         ];

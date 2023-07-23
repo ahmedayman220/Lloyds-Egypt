@@ -71,7 +71,7 @@ class BannerController extends Controller
         $banner = Banner::first();
 
         // Fill the model with the updated $data and save it
-        $banner->fill($data)->save();
+        $banner->update($data);
 
         // Create a notification message
         $notification = array(

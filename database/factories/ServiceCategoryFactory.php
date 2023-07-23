@@ -17,7 +17,7 @@ class ServiceCategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
+            'name' => 'service ' . $this->faker->name(),
             'description' => $this->faker->paragraph,
             'image' => 'service_category/page-title-bg.jpg'
         ];

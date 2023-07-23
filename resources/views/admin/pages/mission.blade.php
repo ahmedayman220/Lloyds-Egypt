@@ -27,9 +27,7 @@
                         <div class="mb-3">
                             <label for="description" class="form-label">Our Mission Description</label>
                             <textarea name="our_mission_description" id="textarea"
-                                      class="form-control" maxlength="225" rows="3">
-                                {{ old('our_mission_description', $mission->our_mission_description) }}
-                            </textarea>
+                                      class="form-control" maxlength="225" rows="3">{{ old('our_mission_description', $mission->our_mission_description) }}</textarea>
                         </div>
                         @error('our_mission_description')
                         <p class="text-danger">{{ $message }}</p>
@@ -38,9 +36,7 @@
                         <div class="mb-3">
                             <label for="description" class="form-label">Our Vision Description</label>
                             <textarea name="our_vision_description" id="textarea"
-                                      class="form-control" maxlength="225" rows="3">
-                                {{ old('our_vision_description', $mission->our_vision_description) }}
-                            </textarea>
+                                      class="form-control" maxlength="225" rows="3">{{ old('our_vision_description', $mission->our_vision_description) }}</textarea>
                         </div>
                         @error('our_vision_description')
                         <p class="text-danger">{{ $message }}</p>
@@ -49,9 +45,7 @@
                         <div class="mb-3">
                             <label for="description" class="form-label">Our Goal Description</label>
                             <textarea name="our_goal_description" id="textarea"
-                                      class="form-control" maxlength="225" rows="3">
-                                {{ old('our_goal_description', $mission->our_goal_description) }}
-                            </textarea>
+                                      class="form-control" maxlength="225" rows="3">{{ old('our_goal_description', $mission->our_goal_description) }}</textarea>
                         </div>
                         @error('our_goal_description')
                         <p class="text-danger">{{ $message }}</p>

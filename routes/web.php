@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddTrainingController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CompaniesController;
@@ -28,9 +29,9 @@ use App\Http\Controllers\MissionController;
 */
 
 // if rout is not exist
-Route::fallback(function() {
-    return back();
-});
+//Route::fallback(function() {
+//    return back();
+//});
 
 
 
@@ -156,8 +157,18 @@ Route::middleware('auth')->prefix('admin')->group(function () {
             Route::delete('' , 'destroy')->name('destroy');
         });
 
+
+    // Admin Add Trainig
+    Route::controller(AddTrainingController::class)
+        ->prefix('add-training')->name('addTraining.')->group(function() {
+            Route::get('' , 'index')->name('index');
+            Route::post('' , 'store')->name('store');
+        });
+
+
+
     // logout
-    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+    Route::get('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 
 });

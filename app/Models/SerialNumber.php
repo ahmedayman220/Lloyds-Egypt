@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class QrCode extends Model
+class SerialNumber extends Model
 {
     use HasFactory;
     protected $guarded = [];
 
     public function trainings()
     {
-        return $this->hasMany(Training::class, 'qrCode_id');
+        return $this->belongsTo(Training::class, 'training_id');
     }
 }
